@@ -33,4 +33,4 @@ jobs:
     needs: [find_exercise, check_comment]
     uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.9.1
     with:
-      issue-number: ${{ needs.find_exercise.outputs.issue-number }}
+      issue-url: ${{ needs.find_exercise.outputs.issue-url }}

@@ -27,7 +27,7 @@ jobs:
       - name: Check styles.css contains design tokens
         uses: skills/action-keyphrase-checker@v1
         with:
-          file: src/static/styles.css
+          text-file: src/static/styles.css
           keyphrase: "--sds-color"
 
   post_next_step:

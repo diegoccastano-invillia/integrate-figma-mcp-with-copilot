@@ -40,7 +40,7 @@ jobs:
       - name: Check for background token
         uses: skills/action-keyphrase-checker@v1
         with:
-          file: src/tokens/design-tokens.css
+          text-file: src/tokens/design-tokens.css
           keyphrase: "--sds-color-background-default-default"
 
   check_keyphrase_text:
@@ -54,7 +54,7 @@ jobs:
       - name: Check for text token
         uses: skills/action-keyphrase-checker@v1
         with:
-          file: src/tokens/design-tokens.css
+          text-file: src/tokens/design-tokens.css
           keyphrase: "--sds-color-text-default-default"
 
   post_next_step:

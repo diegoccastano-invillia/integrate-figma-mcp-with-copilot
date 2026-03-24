@@ -40,7 +40,7 @@ jobs:
       - name: Check for Figma MCP URL
         uses: skills/action-keyphrase-checker@v1
         with:
-          file: .vscode/mcp.json
+          text-file: .vscode/mcp.json
           keyphrase: "mcp.figma.com"
 
   post_next_step:

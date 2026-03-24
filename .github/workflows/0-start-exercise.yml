@@ -15,5 +15,4 @@ jobs:
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.9.1
     with:
       exercise-title: "Integrate Figma MCP with GitHub Copilot"
-      exercise-description: "Aprenda a usar o Figma MCP com GitHub Copilot para redesenhar um site com base num Design System profissional."
-      exercise-url: ${{ github.server_url }}/${{ github.repository }}
+      intro-message: "Aprenda a usar o Figma MCP com GitHub Copilot para redesenhar um site com base num Design System profissional."
