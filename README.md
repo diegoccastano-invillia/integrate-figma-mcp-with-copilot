@@ -1,48 +1,75 @@
-# Integrate MCP with GitHub Copilot
+# 🎨 Figma MCP + GitHub Copilot: Construa uma Landing Page
 
-_Learn how to give GitHub Copilot more tools to expand the capabilities of your development workflow. All in less than an hour!_
-
-## Welcome
-
-- **Who is this for**: Developers looking to enhance their AI-assisted workflows, GitHub Copilot users, and AI enthusiasts.
-- **What you'll learn**: We'll introduce MCP basics, a GitHub MCP server setup, and integration with Copilot Agent Mode.
-- **What you'll build**: A mixed development workflow that uses GitHub Copilot to manage issues while upgrading the extracurricular activities website for Mergington High School.
-- **Prerequisites**: [Getting Started with Copilot](https://github.com/skills/getting-started-with-github-copilot) Exercise
-- **How long**: This exercise takes less than one hour to complete.
-
-In this exercise, you will:
-
-1. Integrate a GitHub MCP server with GitHub Copilot.
-2. Delegate Copilot to research similar projects and open issues.
-3. Ask Copilot to find an important issue and implement it from idea to pull request.
-4. Add comments to a recently closed issue.
-
-### How to start this exercise
-
-> [!IMPORTANT]
-> This exercise assumes basic knowledge of [GitHub Copilot](https://github.com/features/copilot). If you are unfamiliar, we recommend the [Getting Started with Copilot](https://github.com/skills/getting-started-with-github-copilot) exercise.
-
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
-
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=integrate-mcp-with-copilot&owner=%40me&name=skills-integrate-mcp-with-copilot&description=Exercise:+Integrate+Model+Context+Protocol+with+GitHub+Copilot&visibility=public)
+_Aprenda a conectar o GitHub Copilot ao Figma e transformar designs em código React automaticamente._
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary><strong>Como começar este exercício</strong></summary>
 
-When copying the exercise, we recommend the following settings:
+1. Clique no botão **Use this template** acima e selecione **Create a new repository**
+2. Escolha seu perfil como owner e dê um nome ao repositório
+3. Clique em **Create repository**
+4. Aguarde ~20 segundos e **atualize a página**
+5. Uma **Issue** será criada automaticamente com as instruções do primeiro step
+6. Siga as instruções de cada step para completar o exercício
 
-- For owner, choose your personal account or an organization to host the repository.
-
-- We recommend creating a public repository, since private repositories will use Actions minutes.
-
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
-
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
-
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+> 💡 **Recomendado:** Abra o repositório em um **GitHub Codespace** para a melhor experiência — todas as ferramentas já estarão configuradas.
 
 </details>
 
 ---
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+## 🎯 O que você vai aprender
+
+| Step | Habilidade |
+|------|-----------|
+| **1. Configurar Figma + MCP** | Criar conta Figma, gerar token, configurar o servidor MCP no VS Code |
+| **2. Extrair Design Tokens** | Usar o Copilot para extrair variáveis do Figma como CSS Custom Properties |
+| **3. Construir Landing Page** | Transformar um design do Figma em componentes React com o Copilot |
+| **4. Revisar e Publicar** | Revisar PR, fazer merge e finalizar |
+
+## 🧩 O que é MCP?
+
+O **Model Context Protocol (MCP)** é um protocolo aberto que conecta assistentes de IA a ferramentas e dados externos. Com o **Figma MCP**, o GitHub Copilot pode acessar seus designs diretamente — lendo componentes, variáveis, estilos e layout para gerar código mais preciso.
+
+```
+┌─────────────┐      MCP       ┌─────────────┐
+│   GitHub     │◄──────────────►│   Figma      │
+│   Copilot    │   (protocolo)  │   Design     │
+└─────────────┘                 └─────────────┘
+      │
+      ▼
+  Componentes React
+  com design tokens
+```
+
+## 👤 Para quem é este exercício
+
+- Desenvolvedores que querem integrar design e código com IA
+- Pessoas com conhecimento básico de React e TypeScript
+- Curiosos sobre o Model Context Protocol (MCP)
+
+## 📋 Pré-requisitos
+
+- Conta no **GitHub** (com acesso ao Copilot)
+- Conta no **Figma** (gratuita — será criada no Step 1 se necessário)
+- Conhecimento básico de **React**, **TypeScript** e **CSS**
+- Familiaridade com **Git** (commit, push, pull request)
+
+## 🛠️ Stack
+
+- **React 18** + **TypeScript** — UI e tipagem
+- **Vite** — Build tool rápido
+- **Bootstrap 5** (react-bootstrap) — Grid e componentes de layout
+- **CSS Custom Properties** — Design tokens
+- **Figma MCP** — Conexão Copilot ↔ Figma
+
+## 📎 Recursos
+
+- [Simple Design System (Figma Community)](https://www.figma.com/community/file/1380235722331273046/simple-design-system) — O design system usado neste exercício
+- [Documentação do MCP](https://modelcontextprotocol.io/)
+- [Figma MCP](https://www.figma.com/developers/mcp)
+- [GitHub Copilot Docs](https://docs.github.com/en/copilot)
+
+---
+
+> Este exercício foi criado seguindo o formato [GitHub Skills](https://skills.github.com/).

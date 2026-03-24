@@ -1,0 +1,36 @@
+name: Step 4 - Revisar e Publicar
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  find_exercise:
+    name: Find Exercise Issue
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.1
+
+  check_comment:
+    name: Check comment on exercise issue
+    needs: [find_exercise]
+    if: ${{ github.event.issue.number == needs.find_exercise.outputs.issue-number }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Post review
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          issue-number: ${{ needs.find_exercise.outputs.issue-number }}
+          file: .github/steps/x-review.md
+
+  finish:
+    name: Finish Exercise
+    needs: [find_exercise, check_comment]
+    uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.9.1
+    with:
+      issue-number: ${{ needs.find_exercise.outputs.issue-number }}

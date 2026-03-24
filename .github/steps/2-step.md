@@ -1,88 +1,89 @@
-## Step 2: Agent Mode and an MCP Server for GitHub
+# Step 2: Extrair Design Tokens
 
-Great work! You just connected your first MCP server to GitHub Copilot! 🎉
+_Use o Copilot + Figma MCP para transformar variáveis de design em CSS_ 🎨
 
-🚨 The teachers have been busy opening new issues in your repository with bugs and feature requests! Go [take a look](https://github.com/{{full_repo_name}}/issues) - so many good ideas!
+## Teoria: O que são Design Tokens?
 
-We should probably look into them and start researching for other upgrades. Fortunately, with an MCP server for GitHub, triaging these and even doing some research to get ahead should be pretty quick! 🕵️
+**Design tokens** são os valores fundamentais de um design system — cores, tipografia, espaçamento, bordas. Eles são a "fonte única de verdade" que conecta design e código.
 
-### 📖 Theory: How MCP Tool Calling Works in Agent Mode
+No Figma, esses valores são armazenados como **variáveis** (Variables). Com o Figma MCP, podemos extraí-los automaticamente e transformá-los em **CSS Custom Properties** (variáveis CSS):
 
-Now that we have the GitHub MCP connected, let's look at how **agent mode** actually uses these external tools.
+```css
+/* Variáveis do Figma → CSS Custom Properties */
+:root {
+  --sds-color-background-default-default: #ffffff;
+  --sds-color-text-default-default: #1e1e1e;
+  --sds-color-border-default-default: #d9d9d9;
+}
+```
 
-With every prompt you send, Copilot also includes the catalog (list + schema) of available tools. Copilot can then plan and decide:
+Isso garante que o código sempre reflita o design — sem copiar valores manualmente.
 
-- Is any tool needed for this request?
-- Which tool(s) best match the intent?
-- What arguments (per each tool's input schema) should be passed?
+---
 
-Copilot then executes the chosen tool call(s) and streams results back to the LLM.
+## Atividade
 
-![Flowchart diagram illustrating how a user interacts with Copilot Agent Mode](https://github.blog/wp-content/uploads/2025/05/how-it-works.png)
+### 2.1 — Extrair variáveis do Figma via Copilot
 
-> [!TIP]
-> You can also explicitly nudge Copilot to call a specific tool by including `#<tool_name>` in your prompt (e.g `#create_pull_request`, `#codebase`).
+1. Abra o **Copilot Agent Mode**
+2. Use o seguinte prompt (substituindo `SEU_FILE_KEY` pelo file key que você copiou no Step 1):
 
-From here, Copilot can use a set of GitHub‑aware tools to do more than just read or edit code in your repo. Here are a few things you can ask it to do:
+   ```
+   Acesse o arquivo Figma com file key SEU_FILE_KEY usando o MCP.
+   Use get_variable_defs para extrair todas as variáveis de design.
+   Crie o arquivo src/tokens/design-tokens.css com CSS Custom Properties
+   dentro de :root, usando os nomes e valores das variáveis do Figma.
+   ```
 
-- Discover similar public projects to get inspiration.
-- Search issues considering description, comments, and likes.
-- Turn the new ideas you like into issues right away so you don’t lose them.
-- Retrieve an issue, make changes on a branch, and start a pull request.
+3. O Copilot vai:
+   - Conectar ao Figma via MCP
+   - Ler as variáveis do Simple Design System
+   - Gerar o arquivo CSS com todas as custom properties
 
-Isn't that cool?! Now let's do it! 👩‍🚀
+### 2.2 — Verificar os tokens
 
-### :keyboard: Activity: Quickly find and save ideas
+O arquivo `src/tokens/design-tokens.css` deve conter variáveis como:
 
-Let's put the GitHub MCP server to use by researching, comparing, and capturing enhancement ideas!
+```css
+:root {
+  /* Backgrounds */
+  --sds-color-background-default-default: #ffffff;
+  --sds-color-background-default-secondary: #f5f5f5;
+  --sds-color-background-brand-default: #2c2c2c;
+  --sds-color-background-brand-tertiary: #f5f5f5;
+  --sds-color-background-neutral-tertiary: #e3e3e3;
 
-1. Close any open files inside your codespace. This will help reduce unnecessary context.
+  /* Text */
+  --sds-color-text-default-default: #1e1e1e;
+  --sds-color-text-default-secondary: #757575;
+  --sds-color-text-default-tertiary: #b3b3b3;
+  --sds-color-text-brand-on-brand: #f5f5f5;
 
-1. Ensure the **Copilot Chat** panel is open and **Agent** mode is selected. Verify the MCP server tools are also still available.
+  /* Borders */
+  --sds-color-border-default-default: #d9d9d9;
+  --sds-color-border-brand-default: #2c2c2c;
 
-1. Ask Copilot to search GitHub for projects similar to this one.
+  /* ... e mais variáveis */
+}
+```
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Search for any other repositories for organizing extra curricular activities
-   > ```
+> 💡 Os valores exatos podem variar ligeiramente dependendo da sua cópia do Design System. O importante é que os nomes das variáveis sigam o padrão `--sds-*`.
 
-1. When an MCP tool is required, Copilot may ask for permission. **Verify the request** and modify if necessary, then click **Continue**.
+### 2.3 — Fazer commit e push
 
-   <img width="250" alt="request permission dialog" src="https://github.com/user-attachments/assets/229473af-c206-47a4-b356-943b9c9bd946" />
+```bash
+git add src/tokens/design-tokens.css
+git commit -m "feat: extract design tokens from Figma"
+git push origin main
+```
 
-1. Ask Copilot to describe one of the projects. Explore until you find something you like.
+---
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Please look at the code for the 3rd option and give me a detailed description of the features.
-   > ```
+## Validação
 
-1. Use Copilot to compare and generate ideas for enhancements.
+Depois do push, o workflow do exercício vai verificar:
+- ✅ O arquivo `src/tokens/design-tokens.css` existe
+- ✅ O arquivo contém `--sds-color-background-default-default`
+- ✅ O arquivo contém `--sds-color-text-default-default`
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Please compare these features to our project. Which would be new?
-   > ```
-
-1. Nice! Let's have Copilot create issues to save these ideas.
-
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > I like it. Let's create issues for these in my repository.
-   > ```
-
-1. Copilot will ask for permission to create issues on your repository. Click **Continue** for each new issue. Reminder: **verify the request** before running.
-
-   <img width="250" alt="request permission dialog" src="https://github.com/user-attachments/assets/52635294-950a-4168-b71e-498eb769f3af" />
-
-1. Since we are done researching, let's finish this chat session to clear the context. At the top of the **Copilot Chat** panel, click the **New Chat** icon (plus sign).
-
-1. With the new issues created, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next lesson.
-
-> [!NOTE]
-> The Model Context Protocol (MCP) landscape is quickly evolving. Many servers, including the [Official GitHub MCP server](https://github.com/github/github-mcp-server) are in active development and do not have full parity with their stable APIs.
+Quando a validação passar, as instruções do **Step 3** aparecerão automaticamente na issue do exercício.

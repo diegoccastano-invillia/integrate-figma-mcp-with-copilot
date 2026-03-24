@@ -1,43 +1,43 @@
-## Step 4: Validating AI-generated code
+# Step 4: Revisar e Publicar
 
-Great work on implementing that issue! Our extracurricular activities site is getting better every day! 💚
+_Revise seu trabalho e finalize o exercício_ ✅
 
-While AI assistants like GitHub Copilot can dramatically improve productivity, it's essential to remember that **_you_** are responsible for reviewing and validating all work, generated or not.
+## Atividade
 
-> [!tip]
-> In real projects, many teams use [GitHub Actions](https://github.com/features/actions) to setup automated testing.
+### 4.1 — Revisar o Pull Request
 
-### :keyboard: Activity: Review and merge the AI solution
+Antes de fazer merge, revise o PR:
 
-1. Open the new pull request created by Copilot in a new tab.
+1. Acesse o Pull Request que você criou no Step 3
+2. Na aba **Files changed**, revise os componentes gerados:
+   - Os componentes usam os design tokens de `design-tokens.css`?
+   - O layout segue a estrutura do design no Figma?
+   - O código está limpo e sem erros de TypeScript?
+3. Se quiser melhorar algo, use o Copilot para ajustar e faça push adicional na branch
 
-   [![Examine the pull request](https://img.shields.io/badge/-Open%20Pull%20Request-1f883d?logo=github)]({{pull_request_url}})
+### 4.2 — Fazer merge do PR
 
-   > ✨ **Bonus:** If your Copilot subscription provides it, you can also use a specialised version of Copilot to [review the changes](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=webui).
+1. Na página do Pull Request, clique em **Merge pull request**
+2. Confirme o merge
+3. Opcionalmente, delete a branch `feature/landing-page`
 
-1. Review the changes. When you are satisfied, merge the pull request.
+### 4.3 — Comentar na issue do exercício
 
-1. Return to VS code and the active **Copilot Chat** session.
+Para finalizar, vá até a **Issue #1** do exercício (onde você recebeu as instruções) e deixe um comentário contando o que você aprendeu. Por exemplo:
 
-   > 🚨 **Important:** If you previously clicked Done and need to return to a previous conversation, use the **Show Chats** button at the top of the Copilot Chat panel to restore it.
+```
+Concluí o exercício! Aprendi a usar o Figma MCP para extrair
+design tokens e transformar designs em componentes React
+diretamente pelo GitHub Copilot.
+```
 
-1. Ask Copilot to add a comment to the issue we just finished, and to say thanks for the comments and ideas.
+---
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Add a closing comment to the issue we just finished. Provide a 1 sentence description
-   > of the implemented solution and thank the commenters for their ideas and feedback.
-   > ```
+## Validação
 
-   <details>
-   <summary>Having trouble? 🤷</summary><br/>
+Depois de comentar na issue, o workflow do exercício vai:
+- ✅ Detectar seu comentário
+- ✅ Postar uma mensagem de revisão final com o resumo do que você aprendeu
+- ✅ Finalizar o exercício
 
-   Some things to check
-
-   - Is your MCP Server still running?
-   - Check what information is passed to the MCP server calls - is Copilot using the correct repository?
-   - Did Copilot comment on the bug report?
-   </details>
-
-1. Once the comment has been created, Mona will start checking your work. Give her a moment to provide feedback or share the final review. Nice work! You're all done! 🎉
+Parabéns por chegar até aqui! 🎉

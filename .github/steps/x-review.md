@@ -1,20 +1,38 @@
-## Review
+# Revisão Final 🎉
 
-_Congratulations, you've completed this exercise and learned how to integrate MCP with GitHub Copilot!_
+Parabéns! Você completou o hands-on **Figma MCP + GitHub Copilot**!
 
-<img src=https://octodex.github.com/images/collabocats.jpg alt=celebrate width=300 align=right>
+## O que você aprendeu
 
-Here's a recap of what you learned:
+| Step | Habilidade |
+|------|-----------|
+| **1. Configurar Figma + MCP** | Conectar o GitHub Copilot a ferramentas externas via MCP |
+| **2. Extrair Design Tokens** | Transformar variáveis de design em CSS Custom Properties |
+| **3. Construir Landing Page** | Traduzir designs do Figma em componentes React com o Copilot |
+| **4. Revisar e Publicar** | Fluxo completo de PR: review, merge e deploy |
 
-- **MCP Server Configuration**: Setting up and connecting the GitHub MCP server to Copilot
-- **Agent Mode with MCP**: Using natural language to interact with external services through MCP tools
-- **GitHub Repository Research**: Searching for and analyzing similar projects using MCP capabilities
-- **Issue Management & Implementation**: Triaging, creating, and managing GitHub issues through Copilot, then having Copilot solve issues for you
+## Conceitos-chave
 
-### What's next?
+- **MCP (Model Context Protocol):** Protocolo aberto que conecta IA a ferramentas externas
+- **Design Tokens:** Valores fundamentais do design system (cores, tipografia, espaçamento) expressos como variáveis
+- **CSS Custom Properties:** Variáveis CSS nativas que permitem temas dinâmicos e consistência visual
+- **Componentização React:** Dividir interfaces em componentes reutilizáveis e independentes
 
-Check out these resources to learn more or get involved:
+## Próximos passos
 
-- [Take another GitHub Skills exercise](https://learn.github.com/skills).
-- Learn more about [Model Context Protocol](https://modelcontextprotocol.io/introduction)
-- Explore the [GitHub MCP Registry](https://github.com/mcp) and try out other servers!
+- 📖 [Documentação do MCP](https://modelcontextprotocol.io/) — Aprenda mais sobre o protocolo
+- 🎨 [Figma MCP](https://www.figma.com/developers/mcp) — Documentação oficial do Figma MCP
+- 🤖 [GitHub Copilot Docs](https://docs.github.com/en/copilot) — Explore todas as capacidades do Copilot
+- 🧩 [Figma Community](https://www.figma.com/community) — Descubra mais design systems para praticar
+
+## Quer ir além?
+
+Tente estas ideias com o que aprendeu:
+- Adicione uma **página de contato** ao projeto usando o mesmo fluxo Figma → Copilot → React
+- Crie seu **próprio design system** no Figma e extraia os tokens via MCP
+- Explore outros **servidores MCP** além do Figma (GitHub, Notion, Slack)
+- Implemente **modo escuro** usando um segundo conjunto de design tokens
+
+---
+
+Obrigado por participar! Se tiver feedback sobre este exercício, abra uma issue no repositório. 💬

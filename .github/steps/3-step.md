@@ -1,65 +1,119 @@
-## Step 3: Solve issues with Agent Mode and GitHub MCP Server
+# Step 3: Construir a Landing Page
 
-Great work doing that research and finding a potential collaboration opportunity.
-Not only did we find some new ideas to help organize extracurricular activities, but we did all that quickly too.
+_Transforme o design do Figma em componentes React com o Copilot_ 🚀
 
-Now, let's use our MCP server's tools and Copilot to do a bit of triage and get some work done.
+## Teoria: Do Design ao Código
 
-### :keyboard: Activity: Easily implement an important issue
+O **Figma MCP** permite que o Copilot "veja" o design diretamente — layout, componentes, espaçamento, cores. Em vez de traduzir manualmente cada elemento, você vai pedir ao Copilot para gerar código **a partir do design real**.
 
-The issue backlog is piling up. Let’s finally tackle one, but which deserves our attention first?
+O fluxo é:
+1. O Copilot acessa o design via `get_design_context`
+2. Recebe um screenshot + metadados estruturados do layout
+3. Gera componentes React usando **Bootstrap** para grid/layout e os **design tokens** do Step 2
 
-1. Ensure the **Copilot Chat** panel is open and **Agent** mode is selected. Verify the MCP server tools are also still available.
+### Componentização
 
-1. Ask Copilot about the open issues on this repository.
+Vamos dividir a landing page em 4 componentes React:
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > How many open issues are there on my repository?
-   > ```
+```
+┌────────────────────────────────┐
+│          Header.tsx            │  ← Navegação
+├────────────────────────────────┤
+│                                │
+│          Hero.tsx              │  ← Seção principal
+│                                │
+├────────────────────────────────┤
+│                                │
+│       Testimonials.tsx         │  ← Depoimentos
+│                                │
+├────────────────────────────────┤
+│          Footer.tsx            │  ← Rodapé
+└────────────────────────────────┘
+```
 
-   > 🪧 **Note:** Check that the List Issues tool is called with proper parameters.
+---
 
-1. Ask Copilot to summarize the important issues.
+## Atividade
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > Oh no. That's too many for me! Please get the list of issues,
-   > review the descriptions and comments, and pick the top 3 most important.
-   > ```
+### 3.1 — Criar uma branch
 
-   <details>
-   <summary> <b> 💡 Tip:</b> Pre-authorize tool usage</summary><br/>
+```bash
+git checkout -b feature/landing-page
+```
 
-   If Copilot uses a tool often, you can proactively grant permission for the rest of the conversation session.
+### 3.2 — Gerar componentes com Copilot + Figma MCP
 
-   <img width="350" src="https://github.com/user-attachments/assets/d741191e-4d98-489d-92d2-f1069fd6c34e"/>
+1. Abra o **Copilot Agent Mode**
+2. Use o seguinte prompt (substituindo `SEU_FILE_KEY` pelo seu file key):
 
-   </details>
+   ```
+   Acesse o design da landing page no Figma usando get_design_context
+   com file key SEU_FILE_KEY e node ID 175:4613.
 
-1. Review the suggested issues. If Copilot didn't give a specific recommendation, try providing some feedback to narrow the results.
+   Com base no design, crie os seguintes componentes React com TypeScript
+   em src/components/:
+   - Header.tsx (navegação)
+   - Hero.tsx (seção hero/principal)
+   - Testimonials.tsx (depoimentos)
+   - Footer.tsx (rodapé)
 
-1. With the list narrowed, ask Copilot to implement an issue. **Mona won't grade if the changes work, just that an attempt was made.**
+   Use Bootstrap (react-bootstrap) para grid e layout.
+   Importe e use os design tokens de src/tokens/design-tokens.css
+   como CSS custom properties.
+   Atualize src/App.tsx para importar e renderizar todos os componentes.
+   ```
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > #codebase Let's do the first one. Follow these steps:
-   > 1. Checkout a new local branch for making our changes.
-   > 2. Make the changes then confirm with me that they look correct.
-   > 3. Push the changes and create a pull request.
-   > ```
+3. O Copilot vai:
+   - Acessar o design da página via MCP
+   - Analisar o layout, cores, tipografia e espaçamento
+   - Gerar os 4 componentes seguindo o design
+   - Atualizar o `App.tsx` para montar a página completa
 
-   > ⚠️ **Warning:** Always verify the the actions Copilot is asking to perform, especially with the external abilities provided by an MCP server, which probably have no undo option.
+### 3.3 — Importar os design tokens
 
-1. Once the pull request is created, Mona will start checking your work. Give her a moment and keep watch of the comments. You will see her respond with progress info and the next step!
+Certifique-se de que `src/main.tsx` importa o arquivo de tokens:
 
-<details>
-<summary>Having trouble?</summary><br/>
+```tsx
+import "./tokens/design-tokens.css";
+```
 
-- If tools are not being requested, verify your MCP configuration is correct.
-- If Copilot cannot retrieve results, verify you are using this Codespace's token or a Personal Access Token (PAT) with appropriate permissions. By default, the codespace token we are using only has access to this repository.
+Se o Copilot não adicionou essa linha automaticamente, adicione-a manualmente.
 
-</details>
+### 3.4 — Testar localmente
+
+```bash
+npm run dev
+```
+
+Acesse `http://localhost:5173` e compare o resultado com o design original no Figma. Ajuste com o Copilot se necessário:
+
+```
+Ajuste o componente Hero.tsx para que o espaçamento e tipografia
+fiquem mais próximos do design original no Figma.
+```
+
+### 3.5 — Commit, push e abrir PR
+
+```bash
+git add .
+git commit -m "feat: build landing page from Figma design"
+git push origin feature/landing-page
+```
+
+Agora abra um **Pull Request** de `feature/landing-page` → `main`:
+1. Acesse a aba **Pull Requests** do repositório
+2. Clique em **New pull request**
+3. Selecione `feature/landing-page` como branch de origem
+4. Dê um título descritivo: `feat: Landing page construída com Figma MCP`
+5. Clique em **Create pull request**
+
+---
+
+## Validação
+
+Depois de abrir o PR, o workflow do exercício vai verificar:
+- ✅ Existem mudanças na pasta `src/`
+- ✅ O arquivo `src/components/Header.tsx` existe
+- ✅ O arquivo `src/components/Hero.tsx` existe
+
+Quando a validação passar, as instruções do **Step 4** aparecerão automaticamente na issue do exercício.
