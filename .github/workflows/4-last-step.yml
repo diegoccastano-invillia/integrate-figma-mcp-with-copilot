@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   find_exercise:
+    if: ${{ !github.event.repository.is_template }}
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.1
 
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Post review
         uses: GrantBirki/comment@v2.1.1

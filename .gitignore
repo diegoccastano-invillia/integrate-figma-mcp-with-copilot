@@ -4,10 +4,16 @@ node_modules/
 # Build output
 dist/
 
+# Python
+__pycache__/
+*.pyc
+
 # Editor
 .vscode/*
 !.vscode/settings.json
+!.vscode/launch.json
 !.vscode/mcp.json.example
+!.vscode/mcp.json
 
 # Environment
 .env

@@ -110,7 +110,3 @@ Depois de abrir o PR, o workflow do exercício vai verificar:
 - ✅ O CSS contém referências a design tokens (`--sds-color`)
 
 Quando a validação passar, as instruções do **Step 4** aparecerão automaticamente na issue do exercício.
-- ✅ O arquivo `src/components/Header.tsx` existe
-- ✅ O arquivo `src/components/Hero.tsx` existe
-
-Quando a validação passar, as instruções do **Step 4** aparecerão automaticamente na issue do exercício.
