@@ -24,7 +24,7 @@ Neste exercício, você vai:
 
 Simplesmente copie o exercício para sua conta, dê à sua Octocat favorita (Mona) **cerca de 20 segundos** para preparar a primeira lição, e **atualize a página**.
 
-[![](https://img.shields.io/badge/Copiar%20Exerc%C3%ADcio-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=diegoccastano-invillia&template_name=integrate-figma-mcp-with-copilot&owner=%40me&name=skills-integrate-figma-mcp-with-copilot&description=Exercise:+Integrate+Figma+MCP+with+GitHub+Copilot&visibility=public)
+[![](https://img.shields.io/badge/Copiar%20Exerc%C3%ADcio-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=dev-pods&template_name=integrate-figma-mcp-with-copilot&owner=%40me&name=skills-integrate-figma-mcp-with-copilot&description=Exercise:+Integrate+Figma+MCP+with+GitHub+Copilot&visibility=public)
 
 <details>
 <summary>Tendo problemas? 🤷</summary><br/>
