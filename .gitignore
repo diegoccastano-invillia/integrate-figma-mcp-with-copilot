@@ -4,6 +4,10 @@ node_modules/
 # Build output
 dist/
 
+# Python
+__pycache__/
+*.pyc
+
 # Editor
 .vscode/*
 !.vscode/settings.json
